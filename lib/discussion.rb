@@ -4,13 +4,22 @@ require_relative 'database'
 
 class Discussion
 
-  attr_reader :url, :question, :noko_doc, :upvotes, :op_name, :op_link
+  attr_accessor :saved
+  attr_reader :url, :question, :noko_doc, :upvotes, :op_name, :op_link, :id
 
   @@urls = []
+  @@id = 1
 
-  def initialize(url)
+  def initialize(url, id=nil)
+    if !id
+      @id = @@id
+      @@id += 1
+    else
+      @id = id
+    end
     @url = url
     @@urls << url
+    @saved = false
     set_default_values
     save
   end
@@ -59,6 +68,10 @@ class Discussion
     else
       "Community Wiki"
     end
+  end
+
+  def saved?
+    self.saved
   end
 
   def save
