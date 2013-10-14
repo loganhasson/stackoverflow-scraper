@@ -44,6 +44,7 @@ describe Scraper do
     end
 
     it "should create Discussion instances with appropriate urls" do
+      Discussion.clear_urls
       scraper.create_discussions
       scraper.discussion_urls.should eq(Discussion.urls)
     end

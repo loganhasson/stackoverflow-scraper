@@ -65,4 +65,8 @@ class Discussion
     Database.save(self)
   end
 
+  def self.clear_urls
+    @@urls.clear
+  end
+
 end
