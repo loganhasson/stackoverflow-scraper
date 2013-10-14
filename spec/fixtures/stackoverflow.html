@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>How can I write a switch statement in Ruby? - Stack Overflow</title>
+    <link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com"/>
+    <meta name="og:type" content="website" />
+    <meta name="og:image" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=fde65a5a78c6"/>
+    <meta name="og:title" content="How can I write a switch statement in Ruby?" />
+    <meta name="og:description" content="How do I write a switch statement in Ruby?
+" />
+    <meta name="og:url" content="http://stackoverflow.com/questions/948135/how-can-i-write-a-switch-statement-in-ruby"/>
+
+    
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//cdn.sstatic.net/Js/stub.en.js?v=7096e583ae1e" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=eee059983a6e">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How can I write a switch statement in Ruby?&#39;" href="/feeds/question/948135">
+        <script type="text/javascript">
+            StackExchange.gps.track("question.visit");
+        </script>
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({votesCast:[],autoShowCommentHelp:true,showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:948135});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '948135');
+            
+                    });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1381775628,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"3d9402a4517fb6c189744f8a97970dc4","isRegistered":true,"userType":3,"userId":2697356,"accountId":3193658,"gravatar":"<div class=\"\"><img src=\"https://www.gravatar.com/avatar/43b08c8d0ba78698cc1f36175f066d74?s=32&d=identicon&r=PG\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"http://stackoverflow.com/users/2697356/loganhasson","notificationsUnviewedCount":0,"inboxUnviewedCount":0}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"e0bbd4760e83","js/moderator.en.js":"1a411fd265fe","js/full-anon.en.js":"d2d6bfa6e0f2","js/full.en.js":"70679ae5f38a","js/wmd.en.js":"3b1fa237ee0a","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"98eaf3ec452d","js/help.en.js":"8891d63dccb3","js/tageditor.en.js":"f18986485d8f","js/tageditornew.en.js":"172e95af9b71","js/inline-tag-editing.en.js":"499a39b24fd2","js/revisions.en.js":"1dead817b481","js/review.en.js":"53b28a79980b","js/tagsuggestions.en.js":"a7d0f3ff530a","js/post-validation.en.js":"46508df60bf9","js/explore-qlist.en.js":"73825bd006fc","js/events.en.js":"130d4e07b47b"});
+    </script>
+    <script type="text/javascript">
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+</head>
+<body class="question-page">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+    <div class="container">
+        <div id="header" >
+            <div id="portalLink">
+                <a class="genu" href="http://stackexchange.com" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+<span id="hlinks-user">        <span class="profile-triangle">▼</span><a href="/users/2697356/loganhasson" class="profile-link">loganhasson</a>&nbsp;<a href="/users/2697356/loganhasson?tab=reputation"><span class="reputation-score" title="your reputation; view reputation changes" dir="ltr">16</span></a><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-nav"></span>
+<span id="hlinks-custom">            <a href="http://chat.stackoverflow.com">chat</a>
+
+ <span class="lsep">|</span>
+                <a href="http://meta.stackoverflow.com">meta</a>
+
+ <span class="lsep">|</span>
+            <a href="/about">about</a>
+
+ <span class="lsep">|</span>
+            <a href="/help">help</a>
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="/search" method="get" autocomplete="off">
+                        <div>
+                            <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="240" size="28" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs ">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="/tags">Tags</a></li>
+                            <li><a id="nav-users" href="/users">Users</a></li>
+                            <li><a id="nav-badges" href="/help/badges">Badges</a></li>
+                            <li><a id="nav-unanswered" href="/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope itemtype="http://schema.org/Article">
+    <link itemprop="image" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+            <div id="question-header">
+            <h1 itemprop="name"><a href="/questions/948135/how-can-i-write-a-switch-statement-in-ruby" class="question-hyperlink">How can I write a switch statement in Ruby?</a></h1>
+        </div>
+            <div id="mainbar">
+
+            
+
+<div class="question" data-questionid="948135"  id="question">
+    
+                <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk667312187",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk667312187">
+            </div>  
+
+
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="948135">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">595</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>93</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+
+        <p>How do I write a switch statement in Ruby?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/ruby" class="post-tag" title="show questions tagged 'ruby'" rel="tag">ruby</a> <a href="/questions/tagged/switch-statement" class="post-tag" title="show questions tagged 'switch-statement'" rel="tag">switch-statement</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/q/948135/2697356" title="short permalink to this question" class="short-link" id="link-post-948135">share</a><span class="lsep">|</span><a href="/posts/948135/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="948135">flag</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/948135/revisions" title="show all edits to this post">edited <span title="2013-05-17 03:48:32Z" class="relativetime">May 17 at 3:48</span></a>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/128421/the-tin-man"><div class=""><img src="https://www.gravatar.com/avatar/71770d043c0f7e3c7bc5f74190015c26?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/128421/the-tin-man">the Tin Man</a><br>
+            <span class="reputation-score" title="reputation score 51738" dir="ltr">51.7k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="59 silver badges"><span class="badge2"></span><span class="badgecount">59</span></span><span title="98 bronze badges"><span class="badge3"></span><span class="badgecount">98</span></span>
+        </div>
+    </div>
+    </td>
+    <td class="post-signature owner">
+        
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+                    asked <span title="2009-06-04 01:18:00Z" class="relativetime">Jun 4 '09 at 1:18</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/4883/readonly"><div class=""><img src="https://www.gravatar.com/avatar/a92525f049e20db8f4ce3d62f3f0bb2b?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/4883/readonly">Readonly</a><br>
+            <span class="reputation-score" title="reputation score 35552" dir="ltr">35.6k</span><span title="51 gold badges"><span class="badge1"></span><span class="badgecount">51</span></span><span title="137 silver badges"><span class="badge2"></span><span class="badgecount">137</span></span><span title="169 bronze badges"><span class="badge3"></span><span class="badgecount">169</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-948135" class="comments dno" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+                        <tr><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-948135" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>            </table>    
+</div>
+
+
+            <div id="answers">
+
+                <a name="tab-top"></a>
+                <div id="answers-header">
+                    <div class="subheader answers-subheader">
+                        <h2>
+                                7 Answers
+                        </h2>
+                        <div>
+                            <div id="tabs">
+        <a href="/questions/948135/how-can-i-write-a-switch-statement-in-ruby?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="/questions/948135/how-can-i-write-a-switch-statement-in-ruby?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="/questions/948135/how-can-i-write-a-switch-statement-in-ruby?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+                        </div>
+                    </div>    
+                </div>    
+
+
+
+
+  
+<a name="948157"></a>
+<div id="answer-948157" class="answer accepted-answer" data-answerid="948157" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="948157">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">734</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Ruby uses the case expression instead.</p>
+
+<pre><code>case a
+when 1..5
+  puts "It's between 1 and 5"
+when 6
+  puts "It's 6"
+when String
+  puts "You passed a string"
+else
+  puts "You gave me #{a} -- I have no idea what to do with that."
+end
+</code></pre>
+
+<p>The comparison is done by comparing the object in the when-clause with the object in the case-clause using the <code>===</code> operator. That is, it does <code>1..5 === a</code> and <code>String === a</code>, not <code>a === 1..5</code>. This allows for the sophisticated semantics you see above, where you can use ranges and classes and all sorts of things rather than just testing for equality.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/948157/2697356" title="short permalink to this answer" class="short-link" id="link-post-948157">share</a><span class="lsep">|</span><a href="/posts/948157/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="948157">flag</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/948157/revisions" title="show all edits to this post">edited <span title="2011-09-06 20:09:04Z" class="relativetime">Sep 6 '11 at 20:09</span></a>
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2009-06-04 01:22:57Z" class="relativetime">Jun 4 '09 at 1:22</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/50742/chuck"><div class=""><img src="https://www.gravatar.com/avatar/03cdad7329f1a13d2b2f3d9c8a08813d?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/50742/chuck">Chuck</a><br>
+            <span class="reputation-score" title="reputation score 115050" dir="ltr">115k</span><span title="11 gold badges"><span class="badge1"></span><span class="badgecount">11</span></span><span title="145 silver badges"><span class="badge2"></span><span class="badgecount">145</span></span><span title="248 bronze badges"><span class="badge3"></span><span class="badgecount">248</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-948157" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="2" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-3765823" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="supernova">69</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">You can also test using regexes, which I find really useful.</span>
+    &ndash;&nbsp;
+        <a href="/users/120999/xiong-chiamiov" 
+           title="1475 reputation" 
+           class="comment-user">Xiong Chiamiov</a>
+    <span class="comment-date" dir="ltr"><span title="2010-08-28 00:43:10Z" class="relativetime-clean">Aug 28 '10 at 0:43</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-11853756" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="warm">12</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">In Ruby 1.9, using lambdas can be useful too.</span>
+    &ndash;&nbsp;
+        <a href="/users/8279/marc-andre-lafortune" 
+           title="26786 reputation" 
+           class="comment-user">Marc-Andr&#233; Lafortune</a>
+    <span class="comment-date" dir="ltr"><span title="2012-02-21 19:26:36Z" class="relativetime-clean">Feb 21 '12 at 19:26</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-16781795" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">1</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy"><a href="http://railsless.blogspot.com/2011/01/how-to-write-case-switch-statements-in.html" rel="nofollow">railsless.blogspot.com/2011/01/&hellip;</a></span>
+    &ndash;&nbsp;
+        <a href="/users/491126/pankaj" 
+           title="182 reputation" 
+           class="comment-user">Pankaj</a>
+    <span class="comment-date" dir="ltr"><span title="2012-09-18 10:25:01Z" class="relativetime-clean">Sep 18 '12 at 10:25</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-20081019" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">2</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">You can also do regex on the passed argument: when /thisisregex/ <i>next line</i>  puts &quot;This is the found match nr. 1 #{$1}&quot; end</span>
+    &ndash;&nbsp;
+        <a href="/users/741850/cort3z" 
+           title="1075 reputation" 
+           class="comment-user">Cort3z</a>
+    <span class="comment-date" dir="ltr"><span title="2013-01-20 15:34:23Z" class="relativetime-clean">Jan 20 at 15:34</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-20332255" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">2</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">@Supuhstar: No, you don&#39;t.</span>
+    &ndash;&nbsp;
+        <a href="/users/50742/chuck" 
+           title="115050 reputation" 
+           class="comment-user">Chuck</a>
+    <span class="comment-date" dir="ltr"><span title="2013-01-28 20:13:14Z" class="relativetime-clean">Jan 28 at 20:13</span></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-948157" 
+               class="comments-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">show <b>2</b> more comments</a>
+    </td>
+</tr>
+    </table>
+</div>
+            <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1304399634",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1304399634">
+            </div>  
+
+
+
+  
+<a name="5694333"></a>
+<div id="answer-5694333" class="answer" data-answerid="5694333" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="5694333">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">129</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p><code>case...when</code> behaves a bit unexpectedly when handling classes. This is due to the fact that it uses the <code>===</code> operator.</p>
+
+<p>That operator works as expected with literals, but not with classes:</p>
+
+<pre><code>1 === 1
+ =&gt; true
+Fixnum === Fixnum
+ =&gt; false
+</code></pre>
+
+<p>This means that if you want to do a <code>case ... when</code> over an object's class, this will not work:</p>
+
+<pre><code>obj = 'hello'
+case obj.class
+when String
+  print('It is a string')
+when Fixnum
+  print('It is a number')
+else
+  print('It is not a string')
+end
+</code></pre>
+
+<p>Will print "It is not a string".</p>
+
+<p>Fortunately, this is easily solved. The <code>===</code> operator has been defined so that it returns <code>true</code> if you apply it over a class and an instance of that class. In short, the code above can be fixed by removing the <code>.class</code>:</p>
+
+<pre><code>obj = 'hello'
+case obj  # was case obj.class
+when String
+  print('It is a string')
+when Fixnum
+  print('It is a number')
+else
+  print('It is not a string')
+end
+</code></pre>
+
+<p>I hit this problem today while looking for an answer, and this was the first appearing page, so I figured it would be useful to others in my same situation.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/5694333/2697356" title="short permalink to this answer" class="short-link" id="link-post-5694333">share</a><span class="lsep">|</span><a href="/posts/5694333/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="5694333">flag</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2011-04-17 15:20:14Z" class="relativetime">Apr 17 '11 at 15:20</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/312586/kikito"><div class=""><img src="https://www.gravatar.com/avatar/5540796cef3803aa6a9a2bcb62983858?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/312586/kikito">kikito</a><br>
+            <span class="reputation-score" title="reputation score 18998" dir="ltr">19k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="57 silver badges"><span class="badge2"></span><span class="badgecount">57</span></span><span title="108 bronze badges"><span class="badge3"></span><span class="badgecount">108</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-5694333" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-8233376" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">1</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">Nonono, the best solution is understanding how case works with classes and instances and just using it correctly (second code on my answer)</span>
+    &ndash;&nbsp;
+        <a href="/users/312586/kikito" 
+           title="18998 reputation" 
+           class="comment-user">kikito</a>
+    <span class="comment-date" dir="ltr"><span title="2011-08-02 13:51:19Z" class="relativetime-clean">Aug 2 '11 at 13:51</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-14930319" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="warm">6</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">I&#39;ve been coding in Ruby for more than two years, and didn&#39;t know this. Thanks!</span>
+    &ndash;&nbsp;
+        <a href="/users/1011791/chthonic-project" 
+           title="549 reputation" 
+           class="comment-user">Chthonic Project</a>
+    <span class="comment-date" dir="ltr"><span title="2012-07-05 06:39:17Z" class="relativetime-clean">Jul 5 '12 at 6:39</span></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-5694333" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="948142"></a>
+<div id="answer-948142" class="answer" data-answerid="948142" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="948142">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">54</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>it is done by <a href="http://www.techotopia.com/index.php/The_Ruby_case_Statement">case</a> in Ruby. Also see <a href="http://en.wikipedia.org/wiki/Switch_statement#Ruby">this article in Wikipedia</a>.</p>
+
+<p>quoted:</p>
+
+<pre><code>case n
+when 0 
+  puts 'You typed zero'
+when 1, 9 
+  puts 'n is a perfect square'
+when 2 
+  puts 'n is a prime number'
+  puts 'n is an even number'
+when 3, 5, 7 
+  puts 'n is a prime number'
+when 4, 6, 8 
+  puts 'n is an even number'
+else              
+  puts 'Only single-digit numbers are allowed'
+end
+</code></pre>
+
+<p>another example:</p>
+
+<pre><code>score = 70
+
+result = case score
+   when 0..40 then "Fail"
+   when 41..60 then "Pass"
+   when 61..70 then "Pass with Merit"
+   when 71..100 then "Pass with Distinction"
+   else "Invalid Score"
+end
+
+puts result
+</code></pre>
+
+<p>On around page 123 (I am using Kindle) of The Ruby Programming Lanugage (1st Edition, O'Reilly) , it says, the <code>then</code> keyword following the <code>when</code> clauses can be replaced with a newline or semicolon. (just like in the <code>if then else</code> syntax) (Ruby 1.8 also allows a colon in place of <code>then</code>... But this syntax is no longer allowed in Ruby 1.9)</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/948142/2697356" title="short permalink to this answer" class="short-link" id="link-post-948142">share</a><span class="lsep">|</span><a href="/posts/948142/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="948142">flag</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/948142/revisions" title="show all edits to this post">edited <span title="2012-11-27 16:09:54Z" class="relativetime">Nov 27 '12 at 16:09</span></a>
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2009-06-04 01:20:35Z" class="relativetime">Jun 4 '09 at 1:20</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/325418/"><div class=""><img src="https://www.gravatar.com/avatar/eb71c362ddeda80c2668d2575e97bc70?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/325418/">動靜能量</a><br>
+            <span class="reputation-score" title="reputation score 26315" dir="ltr">26.3k</span><span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span><span title="157 silver badges"><span class="badge2"></span><span class="badgecount">157</span></span><span title="347 bronze badges"><span class="badge3"></span><span class="badgecount">347</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-948142" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-6509499" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="warm">10</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy"><code>when (-1.0&#47;0.0)..-1 then &quot;Epic fail&quot;</code></span>
+    &ndash;&nbsp;
+        <a href="/users/38765/andrew-grimm" 
+           title="18807 reputation" 
+           class="comment-user">Andrew Grimm</a>
+    <span class="comment-date" dir="ltr"><span title="2011-04-17 23:49:45Z" class="relativetime-clean">Apr 17 '11 at 23:49</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-7512311" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">Very thorough, thank you.</span>
+    &ndash;&nbsp;
+        <a href="/users/89789/sholsinger" 
+           title="1440 reputation" 
+           class="comment-user">sholsinger</a>
+    <span class="comment-date" dir="ltr"><span title="2011-06-20 02:38:11Z" class="relativetime-clean">Jun 20 '11 at 2:38</span></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-948142" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="11345195"></a>
+<div id="answer-11345195" class="answer" data-answerid="11345195" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="11345195">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">23</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><h1>    case...when</h1>
+
+<p>To add more examples to <a href="http://stackoverflow.com/a/948157/471214">Chuck's answer</a>:</p>
+
+<p><strong>With parameter:</strong></p>
+
+<pre><code>case a
+when 1
+  puts "Single value"
+when 2, 3
+  puts "One of comma-separated values"
+when 4..6
+  puts "One of 4, 5, 6"
+when 7...9
+  puts "One of 7, 8, but not 9"
+else
+  puts "Any other thing"
+end
+</code></pre>
+
+<p><strong>Without parameter:</strong></p>
+
+<pre><code>case
+when b &lt; 3
+  puts "Little than 3"
+when b == 3
+  puts "Equal to 3"
+when (1..10) === b
+  puts "Something in closed range of [1..10]"
+end
+</code></pre>
+
+<p>Please, be aware of <a href="http://stackoverflow.com/a/5694333/471214">the issue</a> that kikito warns.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/11345195/2697356" title="short permalink to this answer" class="short-link" id="link-post-11345195">share</a><span class="lsep">|</span><a href="/posts/11345195/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="11345195">flag</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/11345195/revisions" title="show all edits to this post">edited <span title="2013-07-23 15:31:37Z" class="relativetime">Jul 23 at 15:31</span></a>
+        </div>
+        <div class="user-gravatar32">
+            
+        </div>
+        <div class="user-details">
+            <br>
+            
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2012-07-05 13:19:42Z" class="relativetime">Jul 5 '12 at 13:19</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/471214/mmdemirbas"><div class=""><img src="https://www.gravatar.com/avatar/b2c0159f79af53c8626707e5ede7111b?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/471214/mmdemirbas">mmdemirbas</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">2,524</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-11345195" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-16339217" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">Did you mean to make an assignment of 3 to b?</span>
+    &ndash;&nbsp;
+        <a href="/users/300041/jd" 
+           title="1136 reputation" 
+           class="comment-user">JD.</a>
+    <span class="comment-date" dir="ltr"><span title="2012-08-30 15:29:17Z" class="relativetime-clean">Aug 30 '12 at 15:29</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-16339515" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">@JD. No, I meant to compare <code>b</code> to <code>3</code>. Fixed, thanks.</span>
+    &ndash;&nbsp;
+        <a href="/users/471214/mmdemirbas" 
+           title="2524 reputation" 
+           class="comment-user">mmdemirbas</a>
+    <span class="comment-date" dir="ltr"><span title="2012-08-30 15:39:13Z" class="relativetime-clean">Aug 30 '12 at 15:39</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-25980858" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy"><code>irb(main):005:0&gt; 5 === (1..10)
+=&gt; false
+irb(main):006:0&gt; 5 === 5
+=&gt; true</code></span>
+    &ndash;&nbsp;
+        <a href="/users/631619/michael-durrant" 
+           title="22792 reputation" 
+           class="comment-user">Michael Durrant</a>
+    <span class="comment-date" dir="ltr"><span title="2013-07-23 09:40:22Z" class="relativetime-clean">Jul 23 at 9:40</span></span>
+        <span class="edited-yes" title="this comment was edited 1 times"></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-25995189" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">@MichaelDurrant fixed, thanks.</span>
+    &ndash;&nbsp;
+        <a href="/users/471214/mmdemirbas" 
+           title="2524 reputation" 
+           class="comment-user">mmdemirbas</a>
+    <span class="comment-date" dir="ltr"><span title="2013-07-23 15:32:25Z" class="relativetime-clean">Jul 23 at 15:32</span></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-11345195" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="12914530"></a>
+<div id="answer-12914530" class="answer" data-answerid="12914530" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="12914530">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">17</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>You can use regular expressions, such as finding a type of string:</p>
+
+<pre><code>case foo
+when /^(true|false)$/
+   puts "Given string is boolean"
+when /^[0-9]+$/ 
+   puts "Given string is integer"
+when /^[0-9\.]+$/
+   puts "Given string is float"
+else
+   puts "Given string is probably string"
+end
+</code></pre>
+
+<p>Ruby's <code>case</code> will use the equality operand <code>===</code> for this (thanks @JimDeville). Additional information is available at "<a href="http://www.tutorialspoint.com/ruby/ruby_operators.htm">Ruby Operators</a>". This also can be done using @mmdemirbas example (without parameter), only this approach is cleaner for these types of cases.</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/12914530/2697356" title="short permalink to this answer" class="short-link" id="link-post-12914530">share</a><span class="lsep">|</span><a href="/posts/12914530/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="12914530">flag</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/12914530/revisions" title="show all edits to this post">edited <span title="2013-05-17 03:47:49Z" class="relativetime">May 17 at 3:47</span></a>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/128421/the-tin-man"><div class=""><img src="https://www.gravatar.com/avatar/71770d043c0f7e3c7bc5f74190015c26?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/128421/the-tin-man">the Tin Man</a><br>
+            <span class="reputation-score" title="reputation score 51738" dir="ltr">51.7k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="59 silver badges"><span class="badge2"></span><span class="badgecount">59</span></span><span title="98 bronze badges"><span class="badge3"></span><span class="badgecount">98</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2012-10-16 12:17:41Z" class="relativetime">Oct 16 '12 at 12:17</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/776301/dolphin"><div class=""><img src="https://www.gravatar.com/avatar/8901ffd42765b657625d4b42e95a5a5f?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/776301/dolphin">Dolphin</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">1,957</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="25 bronze badges"><span class="badge3"></span><span class="badgecount">25</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-12914530" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-23033857" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">Ruby technically uses <code>===</code> not <code>=~</code>, which is usually the same, but since Ruby is open, it isn&#39;t always</span>
+    &ndash;&nbsp;
+        <a href="/users/1591/jim-deville" 
+           title="6570 reputation" 
+           class="comment-user">Jim Deville</a>
+    <span class="comment-date" dir="ltr"><span title="2013-04-20 22:43:36Z" class="relativetime-clean">Apr 20 at 22:43</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-23041923" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">@JimDeville that is not correct. You take any of when conditions from my example and run them with <code>===</code> you will not get true return.</span>
+    &ndash;&nbsp;
+        <a href="/users/776301/dolphin" 
+           title="1957 reputation" 
+           class="comment-user">Dolphin</a>
+    <span class="comment-date" dir="ltr"><span title="2013-04-21 11:47:41Z" class="relativetime-clean">Apr 21 at 11:47</span></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-23124505" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">1</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">See <a href="https://gist.github.com/jredville/5446618" rel="nofollow">gist.github.com/jredville/5446618</a>, the spec of a case statement is that they use <code>===</code> for comparison (<code>case o; when c;...;end</code> uses <code>c === o</code> not <code>o === c</code>)</span>
+    &ndash;&nbsp;
+        <a href="/users/1591/jim-deville" 
+           title="6570 reputation" 
+           class="comment-user">Jim Deville</a>
+    <span class="comment-date" dir="ltr"><span title="2013-04-23 19:27:41Z" class="relativetime-clean">Apr 23 at 19:27</span></span>
+        <span class="edited-yes" title="this comment was edited 1 times"></span>
+                </div>
+
+        </td>
+    </tr>
+    <tr id="comment-23128221" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">1</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">@JimDeville I stand corrected. Answer has been edited per your comments, thank you.</span>
+    &ndash;&nbsp;
+        <a href="/users/776301/dolphin" 
+           title="1957 reputation" 
+           class="comment-user">Dolphin</a>
+    <span class="comment-date" dir="ltr"><span title="2013-04-23 21:34:31Z" class="relativetime-clean">Apr 23 at 21:34</span></span>
+        <span class="edited-yes" title="this comment was edited 1 times"></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-12914530" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="17983076"></a>
+<div id="answer-17983076" class="answer" data-answerid="17983076" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="17983076">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">6</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>In Ruby 2.0, you can also use lambdas in <code>case</code> statements, as follows:</p>
+
+<pre><code>is_even = -&gt;(x) { x % 2 == 0 }
+
+case number
+when 0 then puts 'zero'
+when is_even then puts 'even'
+else puts 'odd'
+end
+</code></pre>
+
+<p>You can also create your own comparators easily using a Struct with a custom <code>===</code></p>
+
+<pre><code>Moddable = Struct.new(:n) do
+  def ===(numeric)
+    numeric % n == 0
+  end
+end
+
+mod4 = Moddable.new(4)
+mod3 = Moddable.new(3)
+
+case number
+when mod4 then puts 'multiple of 4'
+when mod3 then puts 'multiple of 3'
+end
+</code></pre>
+
+<p>(Example taken from "<a href="http://stackoverflow.com/questions/16662295/can-procs-be-used-with-case-statements-in-ruby-2-0">Can procs be used with case statements in Ruby 2.0?</a>".)</p>
+
+<p>Or, with a complete class:</p>
+
+<pre><code>class Vehicle
+  def ===(another_vehicle)
+    self.number_of_wheels == another_vehicle.number_of_wheels
+  end
+end
+
+four_wheeler = Vehicle.new 4
+two_wheeler = Vehicle.new 2
+
+case vehicle
+when two_wheeler
+  puts 'two wheeler'
+when four_wheeler
+  puts 'four wheeler'
+end
+</code></pre>
+
+<p>(Example taken from "<a href="http://www.skorks.com/2009/08/how-a-ruby-case-statement-works-and-what-you-can-do-with-it/" rel="nofollow">How A Ruby Case Statement Works And What You Can Do With It</a>".)</p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/17983076/2697356" title="short permalink to this answer" class="short-link" id="link-post-17983076">share</a><span class="lsep">|</span><a href="/posts/17983076/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="17983076">flag</a></div>                    </td>
+    <td align="right" class="post-signature">
+
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+            <a href="/posts/17983076/revisions" title="show all edits to this post">edited <span title="2013-09-11 15:21:22Z" class="relativetime">Sep 11 at 15:21</span></a>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/128421/the-tin-man"><div class=""><img src="https://www.gravatar.com/avatar/71770d043c0f7e3c7bc5f74190015c26?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/128421/the-tin-man">the Tin Man</a><br>
+            <span class="reputation-score" title="reputation score 51738" dir="ltr">51.7k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="59 silver badges"><span class="badge2"></span><span class="badgecount">59</span></span><span title="98 bronze badges"><span class="badge3"></span><span class="badgecount">98</span></span>
+        </div>
+    </div>
+    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2013-08-01 00:04:53Z" class="relativetime">Aug 1 at 0:04</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/473709/jim-lim"><div class=""><img src="https://www.gravatar.com/avatar/1f7f6bd37c819ca2e3482155282661e2?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/473709/jim-lim">Jim Lim</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">3,408</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-17983076" class="comments dno" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+                        <tr><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-17983076" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+
+  
+<a name="18089662"></a>
+<div id="answer-18089662" class="answer" data-answerid="18089662" >
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="18089662">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+
+</div>
+
+            </td>
+
+
+
+<td class="answercell">
+    <div class="post-text"><p>Lots of great answers but I thought I would add one factoid.. If you are attempting to compare objects (Classes) make sure you have a space ship method (not a joke) or understand how they are being compared</p>
+
+<p>Here is a good discussion on the topic
+<a href="http://www.skorks.com/2009/09/ruby-equality-and-object-comparison/" rel="nofollow">http://www.skorks.com/2009/09/ruby-equality-and-object-comparison/</a></p>
+</div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="/a/18089662/2697356" title="short permalink to this answer" class="short-link" id="link-post-18089662">share</a><span class="lsep">|</span><a href="/posts/18089662/edit" class="suggest-edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
+       class="flag-post-link"
+       title="flag this post for serious problems or moderator attention"
+       data-postid="18089662">flag</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+            
+
+                        answered <span title="2013-08-06 20:18:37Z" class="relativetime">Aug 6 at 20:18</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="/users/1228358/jmansurf"><div class=""><img src="https://www.gravatar.com/avatar/b6d2b990d56dc1efc74619bfbe5dfb4c?s=32&d=identicon&r=PG" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="/users/1228358/jmansurf">jmansurf</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">3</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </table>
+</td>        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+        <div id="comments-18089662" class="comments" data-localized="true">
+            <table>
+                <tbody data-remaining-comments-count="0" 
+                       data-addlink-html="" 
+                       data-addlink-disabled="true">
+
+    <tr id="comment-27627774" class="comment">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                                <span title="number of &#39;useful comment&#39; votes received" 
+                                        class="cool">1</span>   
+                        </td>
+                        <td>
+                                    <a class="comment-up comment-up-off" title="this comment adds something useful to the post">upvote</a>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                    <a class="comment-flag" title="flag this comment as unconstructive, offensive, or spam">flag</a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            
+<div style="display: block;" class="comment-body">
+    <span class="comment-copy">For reference, the &quot;space-ship&quot; method is <code>&lt;=&gt;</code>, which is used to return -1, 0, 1, or nil depending on whether the comparison returns less-than, equal, greater-than, or not-comparable respectively. Ruby&#39;s <a href="http://ruby-doc.org/core-2.0.0/Comparable.html" rel="nofollow">Comparable</a> module documentation explains it.</span>
+    &ndash;&nbsp;
+        <a href="/users/128421/the-tin-man" 
+           title="51738 reputation" 
+           class="comment-user">the Tin Man</a>
+    <span class="comment-date" dir="ltr"><span title="2013-09-11 15:18:42Z" class="relativetime-clean">Sep 11 at 15:18</span></span>
+                </div>
+
+        </td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+            <a id="comments-link-18089662" 
+               class="comments-link disabled-link" 
+               title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a>
+    </td>
+</tr>
+    </table>
+</div>
+                                    <a name='new-answer'></a>
+                        <form id="post-form" action="/questions/948135/answer/submit" method="post"  class="post-form">
+                            <input type="hidden" id="post-id" value="948135" />
+                            <h2 class="space">Your Answer</h2>
+
+
+
+    
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: false,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+    <div class="community-option">
+        <input id="communitymode" name="communitymode" type="checkbox" >
+        <label for="communitymode" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
+    </div>
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="3d9402a4517fb6c189744f8a97970dc4">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+                            <div style="position: relative;">
+                                
+                            </div>
+           
+                                                            <div class="form-submit cbt">
+                                    <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                                    <a href="#" class="discard-answer dno">discard</a>
+                                </div>
+                        </form>
+
+
+
+                        <h2 class="bottom-notice">
+Not the answer you&#39;re looking for?                          Browse other questions tagged <a href="/questions/tagged/ruby" class="post-tag" title="show questions tagged 'ruby'" rel="tag">ruby</a> <a href="/questions/tagged/switch-statement" class="post-tag" title="show questions tagged 'switch-statement'" rel="tag">switch-statement</a>  or <a href="/questions/ask">ask your own question</a>.                       </h2>
+            </div>
+        </div>
+                <div id="sidebar" class="show-votes">
+                            <div class="module question-stats">
+                    <p class="label-key">tagged</p>
+                    <div class="tagged"><a href="/questions/tagged/ruby" class="post-tag" title="show questions tagged 'ruby'" rel="tag">ruby</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">84596</span></span><br>
+<a href="/questions/tagged/switch-statement" class="post-tag" title="show questions tagged 'switch-statement'" rel="tag">switch-statement</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span class="item-multiplier-count">2422</span></span><br>
+</div>
+                    <table id="qinfo">
+                        <tr>
+                            <td>
+                                <p class="label-key">asked</p>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <p class="label-key" title="2009-06-04 01:18:00Z"><b>4 years ago</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="label-key">viewed</p>
+                            </td>
+
+                            <td style="padding-left: 10px">
+                                <p class="label-key">
+                                    <b>127154 times</b>
+                                </p>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p class="label-key">active</p>
+                                </td>
+                                <td style="padding-left: 10px">
+                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2013-09-11 15:21:22Z">1 month ago</a></b></p>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                        
+                        <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk360491550",17).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk360491550">
+            </div>  
+    <div id="hireme">
+        <script type="text/javascript">
+window.careers_adurl="http://careers.stackoverflow.com/gethired/js",window.careers_cssurl="//cdn-careers.sstatic.net/careers/gethired/sidebar.min.css?v=7ae83073b37e",window.careers_leaderboardcssurl="//cdn-careers.sstatic.net/careers/gethired/ninja.min.css?v=78ccbfa5c59f",window.careers_companycssurl="//cdn-careers.sstatic.net/careers/gethired/company",window.careers_adselector="div.hireme, div#hireme",StackExchange.ready(function(){$.ajax({url:"//cdn-careers.sstatic.net/careers/gethired/loader.min.js?v=607ab2dda910",dataType:"script",cache:!0})})        </script>
+    </div>
+
+
+
+              
+    
+            <div class="module sidebar-linked">
+    <h4 id="h-linked">Linked</h4>
+    <div class="linked" data-tracker="lq=1">
+<div class="spacer">
+    <a href="/q/6603362" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">8</div>
+    </a>
+    <a href="/questions/6603362/ruby-on-rails-switch" class="question-hyperlink">Ruby on Rails Switch</a>
+</div><div class="spacer">
+    <a href="/q/16662295" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">4</div>
+    </a>
+    <a href="/questions/16662295/can-procs-be-used-with-case-statements-in-ruby-2-0" class="question-hyperlink">Can procs be used with case statements in Ruby 2.0?</a>
+</div><div class="spacer">
+    <a href="/q/16375129" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+    </a>
+    <a href="/questions/16375129/case-statement-in-slim" class="question-hyperlink">Case statement in Slim</a>
+</div><div class="spacer">
+    <a href="/q/13022040" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">1</div>
+    </a>
+    <a href="/questions/13022040/how-does-the-case-statement-work-with-constants" class="question-hyperlink">How does the &#39;case&#39; statement work with constants?</a>
+</div>          </div>
+</div>
+
+
+                <div class="module sidebar-related">
+                    <h4 id="h-related">Related</h4>
+                    <div class="related" data-tracker="rq=1">
+                        <div class="spacer">
+<a href="/q/60208" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted large">206</div>
+</a>
+<a href="/questions/60208/replacements-for-switch-statement-in-python" class="question-hyperlink">Replacements for switch statement in python?</a>
+</div>
+<div class="spacer">
+<a href="/q/338206" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted large">360</div>
+</a>
+<a href="/questions/338206/switch-statement-with-strings-in-java" class="question-hyperlink">Switch Statement with Strings in Java</a>
+</div>
+<div class="spacer">
+<a href="/q/5114584" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">14</div>
+</a>
+<a href="/questions/5114584/how-to-use-ruby-case-when-with-inequalities" class="question-hyperlink">how to use ruby &ldquo; case &hellip; when &rdquo; with inequalities?</a>
+</div>
+<div class="spacer">
+<a href="/q/6603362" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">8</div>
+</a>
+<a href="/questions/6603362/ruby-on-rails-switch" class="question-hyperlink">Ruby on Rails Switch</a>
+</div>
+<div class="spacer">
+<a href="/q/6803647" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">9</div>
+</a>
+<a href="/questions/6803647/how-to-write-a-ruby-switch-statement-case-when-with-regex-and-backreferences" class="question-hyperlink">How to write a Ruby switch statement (case&hellip;when) with regex and backreferences?</a>
+</div>
+<div class="spacer">
+<a href="/q/6904906" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/6904906/need-help-with-ruby-case-statements" class="question-hyperlink">Need help with Ruby case statements</a>
+</div>
+<div class="spacer">
+<a href="/q/7985011" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">1</div>
+</a>
+<a href="/questions/7985011/translating-ruby-to-java-does-java-have-a-construct-that-is-close-to-the-ruby" class="question-hyperlink">Translating Ruby to Java : Does Java have a construct that is close to the Ruby switch statement</a>
+</div>
+<div class="spacer">
+<a href="/q/10759344" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">0</div>
+</a>
+<a href="/questions/10759344/ruby-remove-the-implicit-break-in-case-statement-how-to-make-case-like-switch" class="question-hyperlink">Ruby remove the implicit break in Case statement? (How to make case like Switch)</a>
+</div>
+<div class="spacer">
+<a href="/q/10960310" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">1</div>
+</a>
+<a href="/questions/10960310/trouble-with-this-case-statement-ruby" class="question-hyperlink">trouble with this case statement Ruby</a>
+</div>
+<div class="spacer">
+<a href="/q/16662295" title="Vote score (upvotes - downvotes)">
+        <div class="answer-votes answered-accepted default">4</div>
+</a>
+<a href="/questions/16662295/can-procs-be-used-with-case-statements-in-ruby-2-0" class="question-hyperlink">Can procs be used with case statements in Ruby 2.0?</a>
+</div>
+
+                    </div>
+                </div>
+        </div>
+    
+<div id="feed-link">
+    <div id="feed-link-text"><a href="/feeds/question/948135" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+    <script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/948135/ivc/cbd8');});
+</script>
+<noscript>
+    <div><img src="/posts/948135/ivc/cbd8" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-rb</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="/about">about</a>
+                    <a href="/help">help</a>
+                    <a href="http://blog.stackexchange.com?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MjAsImNtIjo5NTQsImNoIjoxMTc4LCJjciI6Mjc3NiwiZG0iOjQsImZjIjoyODYyLCJmbCI6Mjc1MSwibnciOjIyLCJydiI6MCwicHIiOjExNSwic3QiOjAsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2Fib3V0L2NvbnRhY3QiLCJyZSI6MX0&amp;s=hRods5B22XvRBwWIwtIMekcyNF8">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on", "/questions/948135/how-can-i-write-a-switch-statement-in-ruby")'>mobile</a>
+                    <b><a href="/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tr>
+            <th colspan=3>
+                Technology
+            </th>
+            <th >
+                Life / Arts
+            </th>
+            <th >
+                Culture / Recreation
+            </th>
+            <th >
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com" title="statisticians, data analysts, data miners and data visualization experts">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo &#169; 2013 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="footer-flair">
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+            </div>
+            <div id="svnrev">
+                rev 2013.10.11.1073
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script type="text/javascript">var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script type="text/javascript">
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('ruby,switch-statement,x-user-registered');; ados_load(); });         
+</script>
+
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|ruby|switch-statement|']); 
+        _gaq.push(['_setCustomVar', 2, 'accountid', '3193658',2]); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function () {
+        var ssl='https:'==document.location.protocol,
+            s=document.getElementsByTagName('script')[0],
+            ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src=(ssl?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+        s.parentNode.insertBefore(sc,s);
+    })();
+    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+</body>
+</html>
