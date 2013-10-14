@@ -24,8 +24,22 @@ describe Discussion do
     topic.question.should eq("How can I write a switch statement in Ruby?")
   end
 
-  # it "should get the upvote count" do
-  #   topic.upvotes.should eq()
-  # end
+  it "should get the upvote count" do
+    topic.upvotes.should eq(595)
+  end
+
+  it "should get the OP's name" do
+    topic.op_name.should eq("Readonly")
+  end
+
+  it "should get the OP's profile link" do
+    topic.op_link.should eq("http://stackoverflow.com/users/4883/readonly")
+  end
+
+  context "database" do
+    it "should respond to a save method" do
+      topic.should respond_to(:save)
+    end
+  end
 
 end
