@@ -38,6 +38,7 @@ describe Discussion do
 
   context "database" do
     it "should respond to a save method" do
+      Database.should_receive(:save)
       topic.should respond_to(:save)
     end
   end
